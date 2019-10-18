@@ -1,6 +1,6 @@
 from polling import Polling
 from hardware import Hardware
-from PyQt5 import QtCore, uic, QtGui, QtWidgets
+from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 import PyQt5
 
@@ -16,10 +16,13 @@ class MainWindow(QMainWindow):
             print(self.polling.value1)
             # load screen
             uic.loadUi("MainWindow.ui", self)
-            self.hardware.pollobject()
+            self.PB_poll.clicked.connect(self.poll)
 
         def print(self, value):
             print("Value: {}".format(value))
+
+        def poll(self):
+            self.hardware.pollobject()
 
 if __name__ == '__main__':
     app = PyQt5.QtWidgets.QApplication(['PORTABLE TESTER'])
