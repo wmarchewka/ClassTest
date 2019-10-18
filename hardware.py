@@ -5,3 +5,7 @@ class Hardware(object):
         print(mainwin)
         self.mainwin.print("Hardware")
         print("hardware in hardware:{}".format(self))
+
+    def pollobject(self):
+        return_val = "Walt"
+        self.mainwin.LBL_test1.setText(return_val)
